@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+
+
+
+<div class="container">
+
+  <div class="slide">
+
+    {% for br in banners %}
+    <div class="obje" style="background-image: url('{{br.image.url}}');">
+      <div class="content">
+        <div class="name">{{br.name}}</div>
+        <div class="des">{{br.description}}</div>
+        <button class="see-more"><a href="{% url 'category_detail' br.category.name %}">Daha Fazla</a></button>
+      </div>
+    </div>
+    {% endfor %}
+    
+    <div class="button" style="z-index: 1003;">
+      <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+      <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+</div>
+<script>
+ // Slider'ın otomatik olarak dönmesini sağlayacak değişkenleri tanımlayın
+let autoRotate;
+let autoRotateSpeed = 5000; // Otomatik dönüş hızı (ms cinsinden)
+
+// Otomatik dönüş fonksiyonunu tanımlayın
+function startAutoRotate() {
+  autoRotate = setInterval(function() {
+    let items = document.querySelectorAll('.obje');  
+    document.querySelector('.slide').appendChild(items[0]);
+  }, autoRotateSpeed);
+}
+
+// Otomatik dönüşü durduracak fonksiyonu tanımlayın
+function stopAutoRotate() {
+  clearInterval(autoRotate);
+}
+
+// Sayfa yüklendiğinde otomatik dönüşü başlatın
+window.addEventListener('load', startAutoRotate);
+
+// Önceki ve sonraki butonlara tıklandığında otomatik dönüşü durdurun ve yeniden başlatın
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev');
+
+next.addEventListener('click', function(){
+  stopAutoRotate();
+  let items = document.querySelectorAll('.obje');  
+  document.querySelector('.slide').appendChild(items[0]);
+  startAutoRotate();
+});
+
+prev.addEventListener('click', function(){
+  stopAutoRotate();
+  let items = document.querySelectorAll('.obje');
+  document.querySelector('.slide').prepend(items[items.length - 1]);
+  startAutoRotate();
+});
+
+  
+
+</script>
+
+<div class="product-container">
+  <div class="product-list">
+    {% for pr in products %}
+    <div class="product-card">
+      <a href="{% url 'product_detail' product_id=pr.pk %}">
+        <div class="product-image">
+          <img src="{{ pr.image.url }}" alt="Ürün Resmi" />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{ pr.name }}</h3>
+          <p class="product-price">{{ pr.price }} TL</p>
+          <button class="add-to-cart">Sepete Ekle</button>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<style>
+  @media (max-width: 768px) {
+    .product-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      justify-items: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+</style>
+
+{% endblock %}

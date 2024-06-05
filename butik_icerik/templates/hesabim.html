@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="detay-kutu">
+    <div class="bilgiler">
+      <h4>Furkan Özkul</h4>
+      <a href="{% url 'logout' %}">Çıkış yap</a>
+      <i class="fa-solid fa-right-from-bracket"></i>
+      <h3 class="personal-info">Kişisel Bilgilerim</h3>
+      <ul>
+        <li>E Posta Adresim</li>
+        <li>Şifre Değiştir</li>
+        <a href="#"><li>Beğendiğim Ürünler</li></a>
+      </ul>
+      <h3 class="order">Sipariş Bilgilerim</h3>
+      <a href="#">Siparişlerim</a>
+    </div>
+    <div class="siparişler">
+      <h3>Siparişlerim (0)</h3>
+      <span
+        >Henüz sipariş verilmedi
+        <a href="{% url 'home' %}">Alışverişe başla...</a></span
+      >
+    </div>
+  </div>
+
+
+  <style>
+    .detay-kutu {
+        width: 80%;
+        height: 700px;
+        margin: auto;
+        margin-top: 70px;
+        display: flex;
+        column-gap: 500px;
+      }
+      .detay-kutu li {
+        list-style: none;
+        color: black;
+        cursor: pointer;
+        padding-top: 10px;
+      }
+      .detay-kutu li:hover {
+        text-decoration: underline;
+      }
+      .detay-kutu a {
+        text-decoration: none;
+        color: black;
+      }
+      .detay-kutu a:hover {
+        border-bottom: 1px solid black;
+      }
+      .personal-info {
+        margin-top: 50px;
+      }
+      .order {
+        margin-top: 50px;
+      }
+      .siparişler a {
+        color: blue;
+      }
+  </style>
+{% endblock %}

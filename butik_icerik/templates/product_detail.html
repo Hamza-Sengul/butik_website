@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<div class="product-detail-container2">
+    <div class="product-image2">
+        <img src="{{ product.image.url }}" alt="Ürün Resmi" />
+    </div>
+    <div class="product-info2">
+        <h2 class="product-name">{{ product.name }}</h2>
+        <p class="product-price">{{ product.price }} TL</p>
+        <p class="product-description">{{ product.description }}</p>
+        <button class="add-to-cart" style="margin-top: 30px; width:200px;">Sepete Ekle</button>
+    </div>
+</div>
+
+
+<style>
+    .product-info2 {
+        margin-top: 40px;
+        margin-left: -490px;
+    }
+    .product-image2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .product-detail-container2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-left: 30px;
+    }
+    .product-detail-container2 img {
+        border-radius: 10px;
+        width: 700px;
+    }
+    @media (max-width: 768px) {
+        .product-detail-container2 img {
+            border-radius: 10px;
+            width: 300px;
+            margin-top: 50px;
+            margin-left: -50px;
+        }
+        .product-detail-container2 {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            padding-left: 0px;
+        }
+        .product-detail-container2 {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            padding-left: 30px;
+        }
+    }
+</style>
+
+{% endblock %}

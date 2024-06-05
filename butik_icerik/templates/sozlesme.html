@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+
+<section>
+    <div class="cont">
+        <div class="icerik">
+            <div class="baslik">
+                <h1> {{ contract.title }} </h1>
+            </div>
+            <div class="icerikdetay">
+                <p> {{ contract.content }} </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .cont {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icerik {
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .baslik {
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+</style>
+{% endblock %}

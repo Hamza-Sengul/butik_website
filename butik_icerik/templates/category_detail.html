@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% block content %}
+
+
+<div class="pruduct-container">
+    <div class="product-list">
+    {% for pr in products %}
+    
+        <div class="product-card">
+           <a href="{% url 'product_detail' product_id=pr.pk %}">
+            <div class="product-image">
+                <img src="{{pr.image.url}}" alt="Ürün Resmi" />
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">{{pr.name}}</h3>
+                <p class="product-price">{{pr.price}}</p>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+           </a>
+        </div>
+ 
+    {% endfor %}
+</div>
+</div>
+
+{% endblock %}
