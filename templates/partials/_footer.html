@@ -1,0 +1,73 @@
+<footer>
+    <div class="footer">
+      <div class="logo-footer">
+        <h2>NO97 BUTİK</h2>
+      </div>
+      <div class="footer-content">
+        <div class="footer-category">
+            <h3>Popüler Kategoriler</h3>
+            <ul>
+                <li class="item">
+                  <a href="{% url 'category_detail' category_name='çanta' %}">Çanta</a>
+                </li>
+                <li class="item">
+                  <a href="{% url 'category_detail' category_name='cüzdan' %}">Cüzdan</a>
+                </li>
+                <li class="item">
+                  <a href="{% url 'category_detail' category_name='şal' %}">Şal</a>
+                </li>
+                <li class="item">
+                  <a href="{% url 'category_detail' category_name='eşarp' %}">Eşarp</a>
+                </li>
+                <li class="item">
+                  <a href="{% url 'category_detail' category_name='bujiteri' %}">Bujiteri</a>
+                </li>
+                <li class="item">
+                  <a href="{% url 'category_detail' category_name='ayakkabı' %}">Ayakkabı</a>
+                </li>
+                <li class="item">
+                  <a href="{% url 'category_detail' category_name='terlik' %}">Terlik</a>
+                </li>
+                <li class="item">
+                  <a href="{% url 'category_detail' category_name='şapka' %}">Şapka</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-category">
+            <h3>Hesabım</h3>
+            <ul>
+                <li><a href="{% url 'login' %}">Giriş Yap</a></li>
+                <li><a href="{% url 'register' %}">Kayıt Ol</a></li>
+                <li><a href="#">Siparişlerim</a></li>
+                <li><a href="#">Beğendiğim Ürünler</a></li>
+            </ul>
+        </div>
+        <div class="footer-category">
+            <h3>Hakkımızda</h3>
+            <ul>
+                <li><a href="{% url 'about' %}">Hakkımızda</a></li>
+            </ul>
+        </div>
+        <div class="footer-category">
+            <h3>Hızlı Erişim</h3>
+            <ul>
+                <li><a href="{% url 'home' %}">Anasayfa</a></li>
+                <li><a href="{% url 'sozlesme' %}">Mesafeli Satış Sözleşmesi</a></li>
+            </ul>
+        </div>
+        <div class="footer-category">
+            <h3>İletişim</h3>
+          <ul>
+              <li><a href="#">{{ contact_info.address }}</a></li>
+              <li><a href="https://wa.me/{{ contact_info.phone_number }}">{{ contact_info.phone_number }}</a></li>
+          </ul>
+            
+          </div>
+          
+    </div>
+    
+  </div>
+  <div class="footer-bottom">
+    <span>©2024 No97 Tüm Hakları Saklıdır. Tarsus Üniversitesi Dijital Dönüşüm Ofisi Tarafından Yapılmıştır.</span>
+  </div>
+  </footer>

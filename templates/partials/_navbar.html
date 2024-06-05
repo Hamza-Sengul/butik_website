@@ -1,0 +1,138 @@
+{% load static %}
+
+<nav>
+
+    <div class="navbar">
+      <div class="navbar-wrapper">
+        <label for="toggle" class="label">&#9776;</label>
+    <input type="checkbox" id="toggle">
+    <div class="sidebar">
+      <a href="{% url 'home' %}">Anasayfa</a>
+      <a href="{% url 'category_detail' category_name='çanta' %}">Çanta</a>
+      <a href="{% url 'category_detail' category_name='cüzdan' %}">Cüzdan</a>
+      <a href="{% url 'category_detail' category_name='şal' %}">Şal</a>
+      <a href="{% url 'category_detail' category_name='eşarp' %}">Eşarp</a>
+      <a href="{% url 'category_detail' category_name='bujiteri' %}">Bujiteri</a>
+      <a href="{% url 'category_detail' category_name='ayakkabı' %}">Ayakkabı</a>
+      <a href="{% url 'category_detail' category_name='terlik' %}">Terlik</a>
+      <a href="{% url 'category_detail' category_name='şapka' %}">Şapka</a>
+    </div>
+        <div class="logo">
+          <h1>No97 Butik</h1>
+        </div>
+        <div class="search-bar">
+          <div class="input-box">
+            <input type="text" name="" id="" placeholder="Ürün ara..." />
+            <i class="fa-solid fa-magnifying-glass gozluk"></i>
+          </div>
+          <a href="{% url 'hesap' %}"><i class="fa-solid fa-user"></i></a>
+          <a href="#"><i class="fa-solid fa-heart"></i></a>
+          <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+          {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Çıkış Yap</a>
+          {% else %}
+            <a href="{% url 'login' %}">Giriş Yap</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+</nav>
+<div class="menu-lists">
+  <div class="menu">
+    <ul class="menu-list-item">
+      <li class="item"><a href="{% url 'home' %}">Anasayfa</a></li>
+      <li class="item">
+        <a href="{% url 'category_detail' category_name='çanta' %}">Çanta</a>
+      </li>
+      <li class="item">
+        <a href="{% url 'category_detail' category_name='cüzdan' %}">Cüzdan</a>
+      </li>
+      <li class="item">
+        <a href="{% url 'category_detail' category_name='şal' %}">Şal</a>
+      </li>
+      <li class="item">
+        <a href="{% url 'category_detail' category_name='eşarp' %}">Eşarp</a>
+      </li>
+      <li class="item">
+        <a href="{% url 'category_detail' category_name='bujiteri' %}">Bujiteri</a>
+      </li>
+      <li class="item">
+        <a href="{% url 'category_detail' category_name='ayakkabı' %}">Ayakkabı</a>
+      </li>
+      <li class="item">
+        <a href="{% url 'category_detail' category_name='terlik' %}">Terlik</a>
+      </li>
+      <li class="item">
+        <a href="{% url 'category_detail' category_name='şapka' %}">Şapka</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  // JavaScript code
+  const toggle = document.getElementById('toggle');
+  const sidebar = document.querySelector('.sidebar');
+
+  toggle.addEventListener('change', () => {
+    sidebar.style.transform = toggle.checked ? 'translateX(0)' : 'translateX(-100%)';
+  });
+</script>
+
+<style>
+  .label {
+    margin-top: 75px;
+    margin-left: 30px;
+  }
+  nav {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sidebar {
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    background-color: #f0f0f0;
+    padding-top: 160px;
+    z-index: 1000;
+  }
+  .sidebar a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+  }
+  label {
+    z-index: 1001;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    
+  }
+  nav #toggle {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    label {
+      display: block;
+    }
+    .sidebar {
+      width: 100%;
+    }
+    .search-bar input{
+      display: none;
+    }
+    .gozluk {
+      display: none;
+    }
+  }
+</style>
